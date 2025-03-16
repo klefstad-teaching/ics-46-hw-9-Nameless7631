@@ -68,17 +68,22 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
 }
 
 void load_words(set<string> & word_list, const string& file_name){
-    std::ifstream inputFile;
-    std::string line;
+    std::ifstream in(file_name);
+    int i = 0;
+    for (string word; (in >> word); ++i)
+        word_list.insert(word);
+    
+    // std::ifstream inputFile;
+    // std::string line;
 
-    inputFile.open(file_name);
+    // inputFile.open(file_name);
 
-    if (inputFile.is_open()){
-        while (getline(inputFile, line)){
-            word_list.insert(line);
-        }
-        inputFile.close();
-    }
+    // if (inputFile.is_open()){
+    //     while (getline(inputFile, line)){
+    //         word_list.insert(line);
+    //     }
+    //     inputFile.close();
+    // }
 }
 
 void print_word_ladder(const vector<string>& ladder){
