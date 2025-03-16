@@ -105,7 +105,7 @@ void print_word_ladder(const vector<string>& ladder){
         return;
     }
 
-    std::cout << "Word ladder found: "
+    std::cout << "Word ladder found: ";
     for (const std::string s : ladder){
         std::cout << s << " ";
     }
