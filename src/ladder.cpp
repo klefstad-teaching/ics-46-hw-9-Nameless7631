@@ -55,7 +55,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
         ladder_queue.pop();
         std::string last_word = ladder.back();
         for (const std::string word : word_list){
-            if (visited.find(word) == visited.end() && is_adjacent(last_word, word)){
+            if (is_adjacent(last_word, word) && visited.find(word) == visited.end()){
                 visited.insert(word);
                 std::vector<std::string> copy = ladder;
                 copy.push_back(word);
@@ -72,18 +72,6 @@ void load_words(set<string> & word_list, const string& file_name){
     int i = 0;
     for (string word; (in >> word); ++i)
         word_list.insert(word);
-    
-    // std::ifstream inputFile;
-    // std::string line;
-
-    // inputFile.open(file_name);
-
-    // if (inputFile.is_open()){
-    //     while (getline(inputFile, line)){
-    //         word_list.insert(line);
-    //     }
-    //     inputFile.close();
-    // }
 }
 
 void print_word_ladder(const vector<string>& ladder){
