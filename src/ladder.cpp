@@ -20,7 +20,7 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
     if ((word1_len - word2_len) > 1 || (word2_len - word1_len) > 1) return false;
     int word1_idx = 0, word2_idx = 0, count = 0;
     while (word1_idx < word1_len && word2_idx < word2_len){
-        if (word1[word1_idx] != word2[word2_idx]){
+        if (str1[word1_idx] != str2[word2_idx]){
             if (++count > 1) return false;
             if (word1_len > word2_len) ++word1_idx;
             else if (word2_len > word1_len) ++word2_idx;
